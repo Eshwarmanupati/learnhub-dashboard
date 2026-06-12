@@ -88,6 +88,20 @@ types/
   index.ts            # TypeScript interfaces
 ```
 
+### Challenges & Solutions
+
+1. **Next.js 15 Client/Server Split**:
+   - *Challenge:* Maintaining dynamic layout and client interactions (such as the collapsible sidebar and animated progress bars) without resorting to client-side data fetching waterfalls.
+   - *Solution:* Rerouted all data fetching into a single server-side entry point in the main dashboard Page Component. The server client calls Supabase at the edge and feeds the results down to animated client presentation tiles, optimizing LCP and SEO.
+
+2. **Supabase Resilient Integration**:
+   - *Challenge:* Ensuring the application works out of the box when Supabase environment variables are missing (such as during initial preview/local setup or clean clone).
+   - *Solution:* Implemented a query isolation layer that dynamically verifies environment variables and falls back to a realistic local mock database with simulated artificial network delays, allowing visual testing of loading states.
+
+3. **Hydration Mismatches in Dynamic Grids**:
+   - *Challenge:* Creating a highly visual learning activity calendar mapping 154 days across screens where relative timezones or local date offsets could cause server/client render mismatches.
+   - *Solution:* Designed a deterministic, timezone-agnostic relative date offset generator for mock metadata, ensuring exact alignment between SSR and client hydration.
+
 ---
 
 ## 🚀 Getting Started
