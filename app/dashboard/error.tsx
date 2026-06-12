@@ -3,10 +3,6 @@
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-/**
- * Error boundary for the dashboard route.
- * Provides a graceful error state with a retry button.
- */
 export default function DashboardError({
   error,
   reset,

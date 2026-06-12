@@ -1,17 +1,9 @@
 @import "tailwindcss";
 
-/*
- * Global styles for the LearnHub dashboard.
- * Uses Tailwind v4 @import syntax.
- * Custom animations and base styles for the dark futuristic theme.
- */
-
-/* ===== Custom Properties ===== */
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
-/* ===== Base Styles ===== */
 @layer base {
   * {
     scrollbar-width: thin;
@@ -36,23 +28,19 @@
     background: rgba(255, 255, 255, 0.2);
   }
 
-  /* Remove default focus outlines and add custom */
   :focus-visible {
     outline: 2px solid rgba(99, 102, 241, 0.5);
     outline-offset: 2px;
     border-radius: 4px;
   }
 
-  /* Selection styling */
   ::selection {
     background: rgba(99, 102, 241, 0.3);
     color: #fafafa;
   }
 }
 
-/* ===== Custom Animations ===== */
 @layer utilities {
-  /* Shimmer animation for skeleton loaders */
   @keyframes shimmer {
     0% {
       transform: translateX(-100%);

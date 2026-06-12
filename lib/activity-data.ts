@@ -1,9 +1,5 @@
 import type { ActivityDay } from '@/types';
 
-/**
- * Generates deterministic mock activity data for the contribution chart.
- * Uses a seeded approach so data is consistent across renders.
- */
 export function generateActivityData(): ActivityDay[] {
   const days: ActivityDay[] = [];
   const today = new Date();
@@ -12,7 +8,6 @@ export function generateActivityData(): ActivityDay[] {
     const date = new Date(today);
     date.setDate(date.getDate() - i);
 
-    // Simple hash-based pseudo-random for consistent data
     const seed = date.getDate() * 31 + date.getMonth() * 7 + date.getFullYear();
     const hash = ((seed * 2654435761) >>> 0) % 100;
 

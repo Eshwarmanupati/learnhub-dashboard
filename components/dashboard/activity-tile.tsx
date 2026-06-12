@@ -6,22 +6,16 @@ import { MotionTile } from '@/components/ui/motion-tile';
 import { generateActivityData } from '@/lib/activity-data';
 
 const LEVEL_COLORS = [
-  'bg-white/[0.04]',           // level 0 — no activity
-  'bg-indigo-500/30',          // level 1
-  'bg-indigo-500/50',          // level 2
-  'bg-purple-500/60',          // level 3
-  'bg-purple-400/80',          // level 4
+  'bg-white/[0.04]',
+  'bg-indigo-500/30',
+  'bg-indigo-500/50',
+  'bg-purple-500/60',
+  'bg-purple-400/80',
 ];
 
-/**
- * Activity/contribution chart tile.
- * Displays a GitHub-style contribution grid showing learning activity.
- * Each cell animates in with a staggered delay for a premium feel.
- */
 export function ActivityTile() {
   const activityData = generateActivityData();
 
-  // Group days into weeks (columns of 7)
   const weeks: (typeof activityData)[] = [];
   for (let i = 0; i < activityData.length; i += 7) {
     weeks.push(activityData.slice(i, i + 7));
@@ -32,7 +26,6 @@ export function ActivityTile() {
   return (
     <MotionTile index={5} className="md:col-span-2 lg:col-span-2 min-h-[200px]">
       <span className="flex h-full flex-col p-5 sm:p-6">
-        {/* Header */}
         <span className="mb-4 flex items-center justify-between">
           <span className="flex items-center gap-2">
             <Activity className="h-4 w-4 text-emerald-400" />
@@ -43,7 +36,6 @@ export function ActivityTile() {
           </span>
         </span>
 
-        {/* Contribution grid */}
         <span className="flex flex-1 items-center overflow-x-auto pb-2">
           <span className="flex gap-[3px]">
             {weeks.map((week, weekIndex) => (
@@ -67,7 +59,6 @@ export function ActivityTile() {
           </span>
         </span>
 
-        {/* Legend */}
         <span className="mt-3 flex items-center justify-end gap-1.5 text-[10px] text-zinc-500">
           <span>Less</span>
           {LEVEL_COLORS.map((color, i) => (

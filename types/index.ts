@@ -1,4 +1,3 @@
-/** Database row types matching the Supabase schema */
 export interface Course {
   id: string;
   title: string;
@@ -7,7 +6,6 @@ export interface Course {
   created_at: string;
 }
 
-/** Supabase Database type definition */
 export interface Database {
   public: {
     Tables: {
@@ -20,7 +18,6 @@ export interface Database {
   };
 }
 
-/** Navigation item for the sidebar */
 export interface NavItem {
   label: string;
   icon: string;
@@ -28,14 +25,12 @@ export interface NavItem {
   isActive?: boolean;
 }
 
-/** Activity data for the contribution chart */
 export interface ActivityDay {
   date: string;
   count: number;
   level: 0 | 1 | 2 | 3 | 4;
 }
 
-/** Weekly activity data grouping */
 export interface ActivityWeek {
   days: ActivityDay[];
 }

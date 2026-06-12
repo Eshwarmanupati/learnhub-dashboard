@@ -10,17 +10,12 @@ interface CourseTileProps {
   index: number;
 }
 
-/**
- * Individual course tile with glassmorphism effect, dynamic icon,
- * and animated progress bar. Data is passed from Server Components.
- */
 export function CourseTile({ course, index }: CourseTileProps) {
   const Icon = getIcon(course.icon_name);
 
   return (
     <MotionTile index={index + 1} className="min-h-[180px]">
       <span className="relative flex h-full flex-col justify-between p-5 sm:p-6">
-        {/* Gradient mesh background */}
         <span
           className="pointer-events-none absolute inset-0 rounded-2xl opacity-30"
           style={{
@@ -30,18 +25,15 @@ export function CourseTile({ course, index }: CourseTileProps) {
         />
 
         <span className="relative">
-          {/* Icon */}
           <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/10 ring-1 ring-white/[0.08]">
             <Icon className="h-5 w-5 text-indigo-400" />
           </span>
 
-          {/* Title */}
           <h2 className="text-base font-semibold tracking-tight text-zinc-100">
             {course.title}
           </h2>
         </span>
 
-        {/* Progress */}
         <span className="relative mt-4">
           <ProgressBar
             value={course.progress}
@@ -57,10 +49,6 @@ interface CourseGridProps {
   courses: Course[];
 }
 
-/**
- * Renders a list of course tiles.
- * Receives course data from a Server Component parent.
- */
 export function CourseGrid({ courses }: CourseGridProps) {
   return (
     <>

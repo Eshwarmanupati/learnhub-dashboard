@@ -12,10 +12,6 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 
-/**
- * Maps icon name strings from the database to Lucide icon components.
- * This allows dynamic icon rendering based on Supabase data.
- */
 const iconMap: Record<string, LucideIcon> = {
   Brain,
   Rocket,

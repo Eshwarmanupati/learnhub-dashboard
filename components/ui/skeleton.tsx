@@ -2,10 +2,6 @@
 
 import { motion } from 'framer-motion';
 
-/**
- * Skeleton loading component with a smooth shimmer animation.
- * Matches the shape and size of the actual tiles for a polished loading state.
- */
 export function SkeletonTile({ className = '' }: { className?: string }) {
   return (
     <motion.span
@@ -31,18 +27,11 @@ export function SkeletonTile({ className = '' }: { className?: string }) {
 export function SkeletonGrid() {
   return (
     <section className="grid auto-rows-[minmax(180px,_1fr)] gap-4 p-4 sm:p-6 lg:grid-cols-3 md:grid-cols-2 grid-cols-1" aria-label="Loading dashboard">
-      {/* Hero skeleton */}
       <SkeletonTile className="min-h-[220px] md:col-span-2 lg:col-span-2" />
-
-      {/* Course skeletons */}
       <SkeletonTile className="min-h-[180px]" />
       <SkeletonTile className="min-h-[180px]" />
       <SkeletonTile className="min-h-[180px]" />
-
-      {/* Activity skeleton */}
       <SkeletonTile className="min-h-[200px] md:col-span-2 lg:col-span-2" />
-
-      {/* Extra course skeleton */}
       <SkeletonTile className="min-h-[180px]" />
     </section>
   );

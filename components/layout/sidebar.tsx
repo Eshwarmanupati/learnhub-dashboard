@@ -34,26 +34,18 @@ const iconComponents: Record<string, React.ElementType> = {
   Calendar,
 };
 
-/**
- * Collapsible sidebar component with animated active-state indicator.
- * - Desktop: Full sidebar or icons-only (collapsible)
- * - Tablet: Icons-only
- * - Mobile: Bottom navigation bar
- */
 export function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [activeItem, setActiveItem] = useState('Dashboard');
 
   return (
     <>
-      {/* Desktop & Tablet sidebar */}
       <motion.aside
         className="sticky top-0 hidden h-screen flex-col border-r border-white/[0.06] bg-zinc-950/80 backdrop-blur-xl md:flex"
         animate={{ width: isCollapsed ? 72 : 256 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         aria-label="Main navigation"
       >
-        {/* Logo */}
         <header className="flex h-16 items-center gap-3 border-b border-white/[0.06] px-4">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
             <GraduationCap className="h-5 w-5 text-white" />
@@ -73,7 +65,6 @@ export function Sidebar() {
           </AnimatePresence>
         </header>
 
-        {/* Navigation */}
         <nav className="flex-1 space-y-1 px-3 py-4">
           {NAV_ITEMS.map((item) => {
             const IconComponent = iconComponents[item.icon] ?? LayoutDashboard;
@@ -116,7 +107,6 @@ export function Sidebar() {
           })}
         </nav>
 
-        {/* Collapse toggle */}
         <footer className="border-t border-white/[0.06] p-3">
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
@@ -132,7 +122,6 @@ export function Sidebar() {
         </footer>
       </motion.aside>
 
-      {/* Mobile bottom navigation */}
       <nav
         className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around border-t border-white/[0.06] bg-zinc-950/90 px-2 py-2 backdrop-blur-xl md:hidden"
         aria-label="Mobile navigation"

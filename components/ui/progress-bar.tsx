@@ -8,11 +8,6 @@ interface ProgressBarProps {
   label: string;
 }
 
-/**
- * Animated progress bar component.
- * Starts at 0% and animates to the target value when in viewport.
- * Uses a gradient fill with smooth spring physics.
- */
 export function ProgressBar({ value, label }: ProgressBarProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-20px' });

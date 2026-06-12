@@ -13,11 +13,6 @@ export const metadata: Metadata = {
   description: 'Your personalized learning dashboard. Track course progress, view activity, and stay on top of your learning goals.',
 };
 
-/**
- * Server Component that fetches course data and renders the dashboard.
- * The data fetching happens entirely on the server — no client-side fetching.
- * Client components receive data as props.
- */
 async function DashboardContent() {
   const courses = await fetchCourses();
 
@@ -34,7 +29,6 @@ async function DashboardContent() {
 export default function DashboardPage() {
   return (
     <main className="flex-1 overflow-y-auto pb-20 md:pb-6">
-      {/* Grain texture overlay */}
       <span
         className="pointer-events-none fixed inset-0 z-50 opacity-[0.03]"
         style={{

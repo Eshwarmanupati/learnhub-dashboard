@@ -36,10 +36,6 @@ const STATS: StatItem[] = [
   },
 ];
 
-/**
- * Quick stats tile showing key learning metrics.
- * Provides at-a-glance performance indicators.
- */
 export function StatsTile() {
   return (
     <MotionTile index={6} className="min-h-[200px]">

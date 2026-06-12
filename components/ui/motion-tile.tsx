@@ -37,11 +37,6 @@ const hoverVariants = {
   },
 };
 
-/**
- * MotionTile wraps each Bento grid tile with staggered entry animation
- * and a spring-physics hover scale effect.
- * Only animates transform and opacity for GPU-accelerated performance.
- */
 export function MotionTile({ children, index = 0, className = '' }: MotionTileProps) {
   return (
     <motion.article
@@ -53,7 +48,6 @@ export function MotionTile({ children, index = 0, className = '' }: MotionTilePr
       className={`group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm transition-colors duration-300 hover:border-white/[0.12] ${className}`}
       style={{ willChange: 'transform, opacity' }}
     >
-      {/* Gradient border glow on hover */}
       <motion.span
         className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{

@@ -18,10 +18,6 @@ const containerVariants = {
   },
 };
 
-/**
- * Bento grid container that orchestrates staggered animations
- * for all child tiles. Responsive grid layout adapts from 1 to 3 columns.
- */
 export function BentoGrid({ children }: BentoGridProps) {
   return (
     <motion.section

@@ -4,16 +4,10 @@ import { motion } from 'framer-motion';
 import { Flame, Sparkles, TrendingUp } from 'lucide-react';
 import { MotionTile } from '@/components/ui/motion-tile';
 
-/**
- * Hero tile displayed at the top of the Bento grid.
- * Features animated gradient background, welcome message,
- * and a learning streak indicator.
- */
 export function HeroTile() {
   return (
     <MotionTile index={0} className="md:col-span-2 lg:col-span-2 min-h-[220px]">
       <span className="relative flex h-full flex-col justify-between p-6 sm:p-8">
-        {/* Animated gradient background */}
         <span
           className="pointer-events-none absolute inset-0 rounded-2xl opacity-40"
           style={{
@@ -23,7 +17,6 @@ export function HeroTile() {
           aria-hidden="true"
         />
 
-        {/* Floating particle effects */}
         <motion.span
           className="pointer-events-none absolute right-8 top-6 h-24 w-24 rounded-full opacity-20"
           style={{
@@ -76,7 +69,6 @@ export function HeroTile() {
           </p>
         </span>
 
-        {/* Streak & stats row */}
         <span className="relative mt-6 flex flex-wrap items-center gap-4 sm:gap-6">
           <span className="flex items-center gap-2 rounded-xl border border-white/[0.06] bg-white/[0.04] px-4 py-2.5">
             <Flame className="h-5 w-5 text-orange-400" />

@@ -1,7 +1,6 @@
 import { createServerSupabaseClient } from './server';
 import type { Course } from '@/types';
 
-/** Fallback mock data used when Supabase is not configured */
 const MOCK_COURSES: Course[] = [
   {
     id: '1',
@@ -33,22 +32,15 @@ const MOCK_COURSES: Course[] = [
   },
 ];
 
-/**
- * Fetches all courses from Supabase, ordered by creation date.
- * Falls back to mock data if Supabase env vars are not set.
- * This function is designed to be called from Server Components only.
- */
 export async function fetchCourses(): Promise<Course[]> {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  // Gracefully fall back to mock data if Supabase is not configured
   if (
     !supabaseUrl ||
     !supabaseAnonKey ||
     supabaseUrl === 'your_supabase_project_url'
   ) {
-    // Simulate network delay for realistic loading state
     await new Promise((resolve) => setTimeout(resolve, 800));
     return MOCK_COURSES;
   }
